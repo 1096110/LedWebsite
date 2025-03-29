@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            font-size: 20px;
+            padding: 15px 30px;
+            cursor: pointer;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Control Arduino LED</h1>
+    <button id="onBtn">Turn On LED</button>
+    <button id="offBtn">Turn Off LED</button>
+
+    <script>
+        // Get button elements
+        const onBtn = document.getElementById('onBtn');
+        const offBtn = document.getElementById('offBtn');
+
+        // Turn on the LED by sending a GET request to the backend
+        onBtn.addEventListener('click', () => {
+            fetch('/led/on')
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(error => console.error('Error:', error));
+        });
+
+        // Turn off the LED by sending a GET request to the backend
+        offBtn.addEventListener('click', () => {
+            fetch('/led/off')
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
