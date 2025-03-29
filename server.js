@@ -21,6 +21,6 @@ app.get('/led/off', (req, res) => {
 });
 
 // Start the server
-const server = app.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
+const server = app.listen(8081, () => {
+    console.log('Server running on http://localhost:8081');
 });
